@@ -1,9 +1,7 @@
 import pygame
 
-from Earth.data.scripts.ids import idPlayerImage
-from Earth.data.scripts.player import PlayerModel
-from Earth.data.scripts.style import *
-from Earth.data.scripts import ids, other_scripts
+from data.scripts.style import *
+from data.scripts import other_scripts, ids
 
 
 class guimenu:
@@ -119,8 +117,8 @@ class guimenu:
         if gui.isLeftHand:
             handLeftOn = other_scripts.gradientRect(hand_slay, handOnStyle, hudBackStyle, pygame.Rect(3, 3, hand_slay.get_size()[0] // 2 - 5, hand_slay.get_size()[1] - 5))
         elif gui.isRightHand:
-            handRightOn = other_scripts.gradientRect(hand_slay,hudBackStyle, handOnStyle,
-                                                    pygame.Rect(hand_slay.get_size()[0] // 2 + 3, 3, hand_slay.get_size()[0] // 2 - 5,
+            handRightOn = other_scripts.gradientRect(hand_slay, hudBackStyle, handOnStyle,
+                                                     pygame.Rect(hand_slay.get_size()[0] // 2 + 3, 3, hand_slay.get_size()[0] // 2 - 5,
                                                                 hand_slay.get_size()[1] - 5))
         #hud work>
         hud_contur = pygame.draw.rect(hud_slay, hudConturStyle,

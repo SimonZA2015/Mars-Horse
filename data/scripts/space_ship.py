@@ -1,4 +1,4 @@
-from Earth.data.scripts.ids import *
+from data.scripts.ids import *
 import pygame
 
 

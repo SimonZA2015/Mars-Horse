@@ -1,7 +1,7 @@
 import pygame
-from Earth.data.scripts.other_scripts import checkMouse
-from Earth.data.scripts.gui import guimenu
-from Earth.data.scripts import ids, player, other_scripts
+from data.scripts.other_scripts import checkMouse
+from data.scripts.gui import guimenu
+from data.scripts import other_scripts, ids
 
 
 class KeyListen():

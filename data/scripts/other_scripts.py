@@ -2,7 +2,7 @@ import threading
 import time
 import pygame
 
-from Earth.data.scripts import ids
+from data.scripts import ids
 
 
 class scaleShip():

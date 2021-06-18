@@ -1,6 +1,8 @@
 import random
 import pygame
-from Earth.data.scripts.style import *
+
+
+from data.scripts.style import *
 
 
 class Terrain:

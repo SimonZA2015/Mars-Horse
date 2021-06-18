@@ -1,15 +1,16 @@
 import pygame
 
+from data.scripts.getPath import getPath
 
 sizeMap = [[400, 400], [1024, 800]]
 defaultSit = '0\n0'
-idIconApp = 'data/media/texture/logoApp.png'
-idShipImage = "data/media/texture/ship.png"
-idPlayerImage = "data/media/texture/horsePlayer/walkLeft0.png"
-idLogoathorImage = "data/media/texture/athor.png"
-idLoadImage = "data/media/texture/load.png"
-idShipSoud = "data/media/soud/ship.wav"
-sittingsFile = "data/sittings/sittings"
+idIconApp = getPath('data/media/texture/logoApp.png')
+idShipImage = getPath("data/media/texture/ship.png")
+idPlayerImage = getPath("data/media/texture/horsePlayer/walkLeft0.png")
+idLogoathorImage = getPath("data/media/texture/athor.png")
+idLoadImage = getPath("data/media/texture/load.png")
+idShipSoud = getPath("data/media/soud/ship.wav")
+sittingsFile = getPath("data/sittings/sittings")
 isFullscreen = [pygame.SRCALPHA, pygame.FULLSCREEN]
 with open(sittingsFile, 'r') as file:
     data = file.readlines()
@@ -50,4 +51,4 @@ class idHorsePlayer():
                 intPhoto = '0' + str(intPhoto)
         elif intPhoto < 10:
             intPhoto = "00" + str(intPhoto)
-        self.idHorse = 'data/media/texture/horsePlayer/tile' + intPhoto + '.png'
+        self.idHorse = getPath('data/media/texture/horsePlayer/tile' + intPhoto + '.png')
