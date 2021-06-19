@@ -1,3 +1,5 @@
+import sys
+
 import pygame
 from data.scripts.other_scripts import checkMouse
 from data.scripts.gui import guimenu
@@ -49,7 +51,9 @@ class KeyListen():
 
         for i in pygame.event.get():
             if i.type == pygame.QUIT:
-                exit()
+                pygame.display.quit()
+                pygame.quit()
+                sys.exit()
 
 
     def mouseClick(tap, self):

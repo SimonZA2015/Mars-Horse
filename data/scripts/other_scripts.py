@@ -56,6 +56,24 @@ class fileOpen():
             file.close()
             return data[dataInt]
 
+    def edit(self, path, dataInt, value):
+        data = []
+        with open(path, 'r') as file:
+            data = file.readlines()
+            file.close()
+        data[dataInt] = value
+        print(data)
+        with open(path, 'w') as file:
+            file.writelines(data)
+            file.close()
+            return True
+
+    def default(self):
+        print('set default sit')
+        with open(ids.sittingsFile, 'w') as file:
+            file.writelines(str(ids.defaultSit))
+            file.close()
+
 class console():
     def Print(self, textAdd):
         self.printV = self.printV + '\n' + textAdd

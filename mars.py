@@ -3,12 +3,13 @@ import sys
 import threading
 
 from PyQt5.QtWidgets import QApplication, QMainWindow
+
 from PyQt5 import Qt
 from PyQt5.QtWidgets import QLabel, QPushButton, QVBoxLayout, QFrame
 
-
 class ErrorView(QMainWindow):
     def __init__(self, errorValue, *args, **kwargs):
+
         super(ErrorView, self).__init__(errorValue, *args, **kwargs)
         self.setWindowTitle("Error MarsHorse")
         label = QLabel(errorValue)
@@ -25,7 +26,6 @@ class ErrorView(QMainWindow):
     def close(self):
         self.closeEvent()
 
-
 class main():
     try:
         def __init__(gui):
@@ -39,6 +39,8 @@ class main():
             from data.scripts.other_scripts import scaleShip
             from data.scripts import ids
             from data.scripts import other_scripts
+
+            fullscreen = 0
 
             gui.FPS = 60
             gui.stop = 0
@@ -64,14 +66,10 @@ class main():
             gui.isLoadTerr = True
             gui.isSittingsShow = False
             gui.isStartShow = False
-            if os.path.exists(getPath(ids.sittingsFile)):
+            gui.resolutionInt = 0
+            if os.path.exists(ids.sittingsFile):
                 fullscreen = other_scripts.fileOpen.get(gui, ids.sittingsFile, 0)
                 gui.resolutionInt = int(other_scripts.fileOpen.get(gui, ids.sittingsFile, 1))
-
-            else:
-                with open(ids.sittingsFile, 'w') as file:
-                    file.writelines(str(ids.defaultSit))
-                    file.close()
 
             resolution = ids.sizeMap[int(gui.resolutionInt)]
             gui.resize = resolution
@@ -82,7 +80,7 @@ class main():
             pygame.mixer.pre_init(44100, 16, 2, 4096)  # frequency, size, channels, buffersize
             pygame.init()  # turn all of pygame on.
             pygame.display.set_caption("MarsStation")
-            programIcon = pygame.image.load(getPath(ids.idIconApp))
+            programIcon = pygame.image.load(ids.idIconApp)
             pygame.display.set_icon(programIcon)
             gui.screen = pygame.display.set_mode(gui.resize, ids.isFullscreen[int(fullscreen)])
 

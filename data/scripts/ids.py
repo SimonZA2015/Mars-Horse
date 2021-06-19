@@ -1,8 +1,9 @@
 import pygame
 
+from data.scripts.other_scripts import fileOpen
 from data.scripts.getPath import getPath
 
-sizeMap = [[400, 400], [1024, 800]]
+sizeMap = [[400, 400],[800, 600], [1024, 800]]
 defaultSit = '0\n0'
 idIconApp = getPath('data/media/texture/logoApp.png')
 idShipImage = getPath("data/media/texture/ship.png")
@@ -10,12 +11,17 @@ idPlayerImage = getPath("data/media/texture/horsePlayer/walkLeft0.png")
 idLogoathorImage = getPath("data/media/texture/athor.png")
 idLoadImage = getPath("data/media/texture/load.png")
 idShipSoud = getPath("data/media/soud/ship.wav")
-sittingsFile = getPath("data/sittings/sittings")
+sittingsFile = 'sittings'
 isFullscreen = [pygame.SRCALPHA, pygame.FULLSCREEN]
-with open(sittingsFile, 'r') as file:
-    data = file.readlines()
-    file.close()
-    intRes = data[1]
+try:
+    with open(sittingsFile, 'r') as file:
+        data = file.readlines()
+        print(data)
+        file.close()
+        intRes = data[1]
+except:
+    fileOpen.default(self='s')
+    intRes = 0
 sizeSys = sizeMap[int(intRes)]
 
 #menusStart
